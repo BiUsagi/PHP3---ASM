@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\backend\AdminController;
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -25,3 +26,27 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+
+
+// Backend
+
+Route::prefix('admin')->group(function () {
+
+    // dashboard
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
+
+    // statistical - thống kê
+    // Route::get('/statistical', [StatisticalController::class, 'index'])->name('admin.statistical');
+
+    // posts - bài viết
+    // Route::get('/posts', [PostsController::class, 'index'])->name('admin.posts');
+    // Route::get('/posts/create', [PostsController::class, 'create'])->name('admin.create');
+
+    // // comments - bình luận
+    // Route::get('/comments', [CommentController::class, 'index'])->name('admin.comments');
+
+    // // accounts - tài khoản
+    // Route::get('/staff', [AccountsController::class, 'staffaccount'])->name('admin.staff');
+    // Route::get('/customer', [AccountsController::class, 'orders'])->name('admin.customer');
+});
