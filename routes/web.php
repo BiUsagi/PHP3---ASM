@@ -2,10 +2,21 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+// frontend
 use App\Http\Controllers\frontend\HomeController;
+
+
+// backend
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\BinhLuanController;
+use App\Http\Controllers\backend\BaiVietController;
+use App\Http\Controllers\backend\TaiKhoanController;
+use App\Http\Controllers\backend\TheLoaiController;
 
 
+
+
+// frontend
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/tintuc/{id}', [HomeController::class, 'tintuc']);
 Route::get('/theloai', [HomeController::class, 'theloai']);
@@ -39,14 +50,18 @@ Route::prefix('admin')->group(function () {
     // statistical - thống kê
     // Route::get('/statistical', [StatisticalController::class, 'index'])->name('admin.statistical');
 
-    // posts - bài viết
-    // Route::get('/posts', [PostsController::class, 'index'])->name('admin.posts');
-    // Route::get('/posts/create', [PostsController::class, 'create'])->name('admin.create');
+    //  bài viết
+    Route::get('/baiviet', [BaiVietController::class, 'index'])->name('admin.baiviet');
+    Route::get('/baiviet/create', [BaiVietController::class, 'create'])->name('admin.baiviet.create');
 
-    // // comments - bình luận
-    // Route::get('/comments', [CommentController::class, 'index'])->name('admin.comments');
+    // thể loại
+    Route::get('/theloai', [TheLoaiController::class, 'index'])->name('admin.theloai');
+    Route::get('/theloai/create', [TheLoaiController::class, 'create'])->name('admin.theloai.create');
 
-    // // accounts - tài khoản
-    // Route::get('/staff', [AccountsController::class, 'staffaccount'])->name('admin.staff');
-    // Route::get('/customer', [AccountsController::class, 'orders'])->name('admin.customer');
+
+    // bình luận
+    Route::get('/binhluan', [BinhLuanController::class, 'index'])->name('admin.binhluan');
+
+    //  tài khoản
+    Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('admin.taikhoan');
 });
