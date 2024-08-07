@@ -9,7 +9,7 @@ class Theloai extends Model
 {
     use HasFactory;
 
-    protected $table = 'theloai_asm';
+    protected $table = 'theloai';
 
     protected $fillable = [
         'id',
@@ -17,4 +17,11 @@ class Theloai extends Model
         'created_at',
         'updated_at',
     ];
+
+
+     // Một thể loại có nhiều bài viết
+     public function baiviets()
+     {
+         return $this->hasMany(BaiViet::class, 'id_loai');
+     }
 }
