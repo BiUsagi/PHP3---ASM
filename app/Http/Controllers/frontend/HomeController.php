@@ -23,27 +23,27 @@ class HomeController extends Controller
             ->get();
         return view('frontend.index', compact('listtin', 'noibat', 'esports', 'congnghe'));
     }
-    public function tintuc($id)
+    public function baiviet($id)
     {
         $tin = BaiViet::where('id', $id)->first();
         $loai = Theloai::where('id', $tin->id_loai)->first();
-        return view('tintuc', compact('tin', 'loai'));
+        return view('baiviet', compact('tin', 'loai'));
     }
 
     public function theloai()
     {
-        return view('theloai');
+        return view('frontend.theloai');
     }
     public function timkiem()
     {
-        return view('timkiem');
+        return view('frontend.timkiem');
     }
     public function gioithieu()
     {
-        return view('gioithieu');
+        return view('frontend.gioithieu');
     }
     public function lienhe()
     {
-        return view('lienhe');
+        return view('frontend.lienhe');
     }
 }
