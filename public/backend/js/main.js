@@ -6,6 +6,25 @@
 * License: https://bootstrapmade.com/license/
 */
 
+function previewImage(event) {
+  var reader = new FileReader();
+  reader.onload = function () {
+      var output = document.getElementById('previewImg');
+      output.src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+var quill = new Quill('.quill-editor-full', {
+  theme: 'snow'
+});
+
+document.querySelector('form').addEventListener('submit', function() {
+  var content = document.querySelector('.quill-editor-full .ql-editor').innerHTML;
+  document.getElementById('content').value = content;
+});
+
+
 (function() {
   "use strict";
 

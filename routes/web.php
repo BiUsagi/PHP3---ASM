@@ -53,6 +53,7 @@ Route::prefix('admin')->group(function () {
     //  bài viết
     Route::get('/baiviet', [BaiVietController::class, 'index'])->name('admin.baiviet');
     Route::get('/baiviet/create', [BaiVietController::class, 'create'])->name('admin.baiviet.create');
+    Route::post('/baiviet/store', [BaiVietController::class, 'store'])->name('admin.baiviet.store');
 
     // thể loại
     Route::get('/theloai', [TheLoaiController::class, 'index'])->name('admin.theloai');

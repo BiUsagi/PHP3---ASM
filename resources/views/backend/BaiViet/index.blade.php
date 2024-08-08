@@ -3,7 +3,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Danh sách nhân viên</h1>
+            <h1>Danh sách bài viết</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -31,35 +31,35 @@
                                     <tr>
                                         <th class="text-center">ID</th>
                                         <th>Tên</th>
-                                        <th class="text-center">Ảnh</th>
+                                        <th class="text-center">Ảnh Bìa</th>
                                         <th>Thể Loại</th>
+                                        <th>Tác Giả</th>
                                         <th data-type="date" data-format="YYYY/DD/MM">Ngày Tạo</th>
                                         <th class="text-center">Hành Động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    {{-- Lặp hiện thị danh sách nhân viên --}}
-
-                                    @php $stt = 1; @endphp
+                                    {{-- Lặp hiện thị danh sách bài viết --}}
 
                                     @foreach ($data as $item)
                                         <tr>
                                             <td class="text-center">
-                                                {{ $stt++ }}
+                                                {{ $item->id }}
                                             </td>
+                                            <td>{{ $item->ten_bai }}</td>
                                             <td class="text-center">
-                                                @if ($item->image)
-                                                    <img src="{{ $item->image }}" style="max-width: 100px;">
+                                                @if ($item->hinh_anh)
+                                                    <img src="backend/img/{{ $item->hinh_anh }}" style="max-height: 100px;">
                                                 @else
-                                                    <img src="{{ url('assets/backend/img/no-image.jpg') }}"
-                                                        style="max-width: 70px;">
+                                                    <img src="{{ url('backend/img/no-image.jpg') }}"
+                                                        style="max-height: 100px;">
                                                 @endif
                                             </td>
-                                            <td>{{ $item->name_staff }}</td>
-                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->theloai->ten }}</td>
+                                            <td>{{ $item->user->name }}</td>
                                             <td>{{ $item->created_at }}</td>
-                                            <td class="text-center">
+                                            <td class="text-center" style="max-width: 100px;">
                                                 <button type="button" class="btn btn-info text-white"><i
                                                         class="bi bi-eye-fill"></i></button>
                                                 <button type="button" class="btn btn-warning text-white"><i

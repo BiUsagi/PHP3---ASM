@@ -13,20 +13,20 @@ class HomeController extends Controller
     public function index()
     {
         $listtin = BaiViet::all();
-        $noibat = BaiViet::select('ten')
-            ->orderBy('luotxem', 'desc')
+        $noibat = BaiViet::select('ten_bai')
+            ->orderBy('luot_xem', 'desc')
             ->limit(5)
             ->get();
-        $esports = BaiViet::where('theloai_id', '3')
+        $esports = BaiViet::where('id_loai', '3')
             ->get();
-        $congnghe = BaiViet::where('theloai_id', '6')
+        $congnghe = BaiViet::where('id_loai', '2')
             ->get();
-        return view('index', compact('listtin', 'noibat', 'esports', 'congnghe'));
+        return view('frontend.index', compact('listtin', 'noibat', 'esports', 'congnghe'));
     }
     public function tintuc($id)
     {
         $tin = BaiViet::where('id', $id)->first();
-        $loai = Theloai::where('id', $tin->theloai_id)->first();
+        $loai = Theloai::where('id', $tin->id_loai)->first();
         return view('tintuc', compact('tin', 'loai'));
     }
 

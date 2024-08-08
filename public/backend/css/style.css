@@ -251,6 +251,29 @@ h6 {
   color: red;
 }
 
+.setupSelect2 {
+  padding: 5px 10px;
+}
+
+
+.form-control-select2 {
+  display: block;
+  width: 100%;
+  border: 1px solid #ebeef4;
+  padding: 5px 10px;
+  font-size: 14px;
+  outline: none;
+  /* margin-top: 10px; */
+  border-radius: 3px;
+}
+
+.img-cover {
+  margin-top: 10px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
 .form-control-customize {
   display: block;
   width: 100%;
