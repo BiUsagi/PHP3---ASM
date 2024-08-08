@@ -57,7 +57,7 @@ Route::prefix('admin')->group(function () {
     // thể loại
     Route::get('/theloai', [TheLoaiController::class, 'index'])->name('admin.theloai');
     Route::get('/theloai/create', [TheLoaiController::class, 'create'])->name('admin.theloai.create');
-
+    Route::post('/theloai/store', [TheLoaiController::class, 'store'])->name('admin.theloai.store');
 
     // bình luận
     Route::get('/binhluan', [BinhLuanController::class, 'index'])->name('admin.binhluan');

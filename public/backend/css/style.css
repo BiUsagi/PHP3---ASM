@@ -103,6 +103,21 @@ h6 {
 /*--------------------------------------------------------------
 # Override some default Bootstrap stylings
 --------------------------------------------------------------*/
+.btn-customize {
+  background: #1face1;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #1face1;
+  transition: all .3s ease-in-out;
+}
+
+.title-top {
+  padding: 20px 0 15px 0;
+}
+
 /* Dropdown menus */
 .dropdown-menu {
   border-radius: 4px;
@@ -232,12 +247,33 @@ h6 {
   padding: 15px;
 }
 
+.note {
+  color: red;
+}
+
+.form-control-customize {
+  display: block;
+  width: 100%;
+  border: 1px solid #ebeef4;
+  padding: 5px 10px;
+  font-size: 14px;
+  outline: none;
+  /* margin-top: 10px; */
+  border-radius: 3px;
+}
+
+.form-label-customize {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .card-title {
-  padding: 20px 0 15px 0;
+  /* padding: 20px 0 15px 0; */
   font-size: 18px;
   font-weight: 500;
   color: #012970;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 .card-title span {

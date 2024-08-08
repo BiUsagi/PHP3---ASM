@@ -9,6 +9,7 @@ class BaiVietController extends Controller
 {
     public function index()
     {
+
         return view('backend.BaiViet.index');
     }
 

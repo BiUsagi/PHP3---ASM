@@ -46,8 +46,6 @@
                                             <td>{{ $item->ten }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td class="text-center">
-                                                <button type="button" class="btn btn-info text-white"><i
-                                                        class="bi bi-eye-fill"></i></button>
                                                 <button type="button" class="btn btn-warning text-white"><i
                                                         class="ri-edit-box-line"></i></button>
                                                 <button type="button" class="btn btn-danger"><i
