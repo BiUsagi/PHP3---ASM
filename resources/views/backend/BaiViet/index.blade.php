@@ -46,20 +46,20 @@
                                         <tr>
                                             <td class="text-center">
                                                 {{ $item->id }}
-                                            </td>
+                                            </td>   
                                             <td>{{ $item->ten_bai }}</td>
-                                            <td class="text-center">
+                                            <td class="text-center" style="width: 200px;">
                                                 @if ($item->hinh_anh)
                                                     <img src="backend/img/{{ $item->hinh_anh }}" style="max-height: 100px;">
                                                 @else
                                                     <img src="{{ url('backend/img/no-image.jpg') }}"
-                                                        style="max-height: 100px;">
+                                                        style="max-height: 100px;" class="object-cover">
                                                 @endif
                                             </td>
                                             <td>{{ $item->theloai->ten }}</td>
                                             <td>{{ $item->user->name }}</td>
                                             <td>{{ $item->created_at }}</td>
-                                            <td class="text-center" style="max-width: 100px;">
+                                            <td class="text-center" style="width: 200px;">
                                                 <button type="button" class="btn btn-info text-white"><i
                                                         class="bi bi-eye-fill"></i></button>
                                                 <button type="button" class="btn btn-warning text-white"><i

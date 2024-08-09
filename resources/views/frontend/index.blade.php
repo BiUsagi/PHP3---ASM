@@ -13,10 +13,10 @@
                                 @foreach ($listtin->slice(0, 4) as $tin)
                                     <div class="swiper-slide">
                                         <a href="{{ url('baiviet/' . $tin->id) }}" class="img-bg d-flex align-items-end"
-                                            style="background-image: url('{{ url('img/' . $tin->hinhanh) }}');">
+                                            style="background-image: url('{{ url('backend/img/' . $tin->hinh_anh) }}');">
                                             <div class="img-bg-inner">
-                                                <h2>{{ $tin->ten }}</h2>
-                                                <p>{{ $tin->mota }}</p>
+                                                <h2>{{ $tin->ten_bai }}</h2>
+                                                <p>{{ $tin->mo_ta }}</p>
                                             </div>
                                         </a>
                                     </div>

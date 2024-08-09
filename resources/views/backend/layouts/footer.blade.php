@@ -24,6 +24,9 @@
 <script src="backend/vendor/simple-datatables/simple-datatables.js"></script>
 <script src="backend/vendor/tinymce/tinymce.min.js"></script>
 <script src="backend/vendor/php-email-form/validate.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/super-build/ckeditor.js"></script>
+<script src="backend/js/ckeditor.js"></script>
+
 
 <!-- Template Main JS File -->
 <script src="backend/js/main.js"></script>

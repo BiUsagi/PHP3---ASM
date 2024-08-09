@@ -38,7 +38,7 @@
                                             class="note">(*)</span></label>
                                     {{-- <div class="quill-editor-full" style="min-height: 300px;"> --}}
                                     <textarea type="text" class="form-control-customize ck-editor" name="noidung" style="min-height: 300px;"
-                                        id="content" data_height="500"></textarea>
+                                        id="editor" data_height="500"></textarea>
                                     {{-- </div> --}}
                                     {{-- <input type="hidden" name="noidung" id="content"> --}}
                                 </div>

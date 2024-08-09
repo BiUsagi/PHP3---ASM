@@ -37,12 +37,18 @@ class BaiVietController extends Controller
             $image = $request->file('hinhanh');
             $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/backend/img/baiviet');
-            $image->move($destinationPath, $name);
-            $hinhanh = '/baiviet/' . $name;
-        } else {
-            $hinhanh = null;
-        }
+            $filePath = $destinationPath . '/' . $name;
 
+            // Kiểm tra xem file đã tồn tại hay chưa
+            if (file_exists($filePath)) {
+                // Nếu file tồn tại, chỉ sử dụng file hiện tại
+                $hinhanh = '/baiviet/' . $name;
+            } else {
+                // Nếu file không tồn tại, thực hiện upload
+                $image->move($destinationPath, $name);
+                $hinhanh = '/baiviet/' . $name;
+            }
+        }
         // Tạo bài viết mới
         $baiviet = new BaiViet();
         $baiviet->ten_bai = $request->tieude;
