@@ -30,10 +30,7 @@ class HomeController extends Controller
         return view('baiviet', compact('tin', 'loai'));
     }
 
-    public function theloai()
-    {
-        return view('frontend.theloai');
-    }
+    
     public function timkiem()
     {
         return view('frontend.timkiem');

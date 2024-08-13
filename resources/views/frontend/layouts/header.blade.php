@@ -36,12 +36,38 @@
         </nav><!-- .navbar -->
 
         <div class="position-relative">
-            <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-            <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-            <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
 
-            <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    @auth
+                        <li class="dropdown">
+                            <a href="#">
+                                <span>{{ Auth::user()->name }}</span>
+                                <i class="bi bi-chevron-down dropdown-indicator"></i>
+                            </a>
+                            <ul>
+                                <li><a href="http://127.0.0.1:8000/user/profile">Thông Tin Tài Khoản</a></li>
+                                <li><a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng
+                                        xuất</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{ route('login') }}">Đăng nhập</a>
+                        </li>
+                    @endauth
+                </ul>
+                <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+
+
 
             <!-- ======= Search Form ======= -->
             <div class="search-form-wrap js-search-form-wrap">

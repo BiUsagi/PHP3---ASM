@@ -20,7 +20,10 @@ use App\Http\Controllers\backend\TheLoaiController;
 
 // frontend
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('/baiviet/{id}', [HomeController::class, 'baiviet'])->name('baiviet.one');
+
+// thể loại
 Route::get('/theloai', [HomeController::class, 'theloai'])->name('theloai');
 Route::get('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
 Route::get('/gioithieu', [HomeController::class, 'gioithieu'])->name('gioithieu');
@@ -28,9 +31,8 @@ Route::get('/lienhe', [HomeController::class, 'lienhe'])->name('lienhe');
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

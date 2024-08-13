@@ -15,7 +15,7 @@
                                         <a href="{{ url('baiviet/' . $tin->id) }}" class="img-bg d-flex align-items-end"
                                             style="background-image: url('{{ url('backend/img/' . $tin->hinh_anh) }}');">
                                             <div class="img-bg-inner">
-                                                <h2>{{ $tin->ten_bai_bai }}</h2>
+                                                <h2>{{ $tin->ten_bai }}</h2>
                                                 <p>{{ $tin->mo_ta }}</p>
                                             </div>
                                         </a>

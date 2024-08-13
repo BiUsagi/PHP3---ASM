@@ -11,7 +11,6 @@ class TheLoaiConroller extends Controller
     public function index()
     {
         $theloai = Theloai::all();
-        return view('theloai.index', compact('theloai'));
+        return view('frontend.theloai', compact('theloai'));
     }
-
 }
