@@ -23,7 +23,7 @@
                         @endphp
 
                         @foreach ($danhsach_loai as $dsl)
-                            <li><a href="#">{{ $dsl->ten }}</a></li>
+                            <li><a href="{{ route('theloai.id', $dsl->id) }}">{{ $dsl->ten }}</a></li>
                         @endforeach
 
 

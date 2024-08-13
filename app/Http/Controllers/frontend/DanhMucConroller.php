@@ -19,4 +19,15 @@ class DanhMucConroller extends Controller
 
         return view('frontend.theloai', compact('theloai', 'name', 'phoBien', 'moiNhat', 'dsLoai'));
     }
+    public function theloai($id)
+    {
+        $theloai = BaiViet::where('id_loai', $id)->paginate(5);
+        $tenTL = Theloai::select('ten')->where('id', $id)->first();
+        $name = $tenTL->ten;
+        $phoBien = BaiViet::where('id_loai', $id)->orderBy('luot_xem', 'desc')->limit(6)->get();
+        $moiNhat = BaiViet::where('id_loai', $id)->orderBy('created_at', 'desc')->limit(6)->get();
+        $dsLoai = TheLoai::all();
+
+        return view('frontend.theloai', compact('theloai', 'name', 'phoBien', 'moiNhat', 'dsLoai'));
+    }
 }

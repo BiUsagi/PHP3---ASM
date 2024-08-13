@@ -7,7 +7,7 @@
 
                     <div class="col-md-9" data-aos="fade-up">
                         <h3 class="category-title">Thể Loại: {{ $name }}</h3>
-
+                      
                         @foreach ($theloai as $item)
                             <div class="d-md-flex post-entry-2 half">
                                 <a href="single-post.html" class="me-4 thumbnail">

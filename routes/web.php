@@ -26,6 +26,8 @@ Route::get('/baiviet/{id}', [HomeController::class, 'baiviet'])->name('baiviet.o
 
 // thể loại
 Route::get('/theloai', [DanhMucConroller::class, 'index'])->name('theloai');
+Route::get('/theloai/{id}', [DanhMucConroller::class, 'theloai'])->name('theloai.id');
+
 Route::get('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
 Route::get('/gioithieu', [HomeController::class, 'gioithieu'])->name('gioithieu');
 Route::get('/lienhe', [HomeController::class, 'lienhe'])->name('lienhe');
