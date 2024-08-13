@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 // frontend
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\DanhMucConroller;
 
 
 // backend
@@ -24,7 +25,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/baiviet/{id}', [HomeController::class, 'baiviet'])->name('baiviet.one');
 
 // thể loại
-Route::get('/theloai', [HomeController::class, 'theloai'])->name('theloai');
+Route::get('/theloai', [DanhMucConroller::class, 'index'])->name('theloai');
 Route::get('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
 Route::get('/gioithieu', [HomeController::class, 'gioithieu'])->name('gioithieu');
 Route::get('/lienhe', [HomeController::class, 'lienhe'])->name('lienhe');

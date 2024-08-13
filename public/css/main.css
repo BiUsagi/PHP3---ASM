@@ -44,6 +44,11 @@ h6 {
 }
 
 
+.img-customer-theloai {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
 
 .img-customer {
   width: 100%;
