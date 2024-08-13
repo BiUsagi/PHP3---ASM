@@ -254,6 +254,11 @@ h6 {
 .setupSelect2 {
   padding: 5px 10px;
 }
+.img-customer {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
 
 
 .form-control-select2 {

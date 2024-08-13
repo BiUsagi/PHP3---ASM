@@ -43,6 +43,22 @@ h6 {
   margin-top: 90px;
 }
 
+
+
+.img-customer {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.img-customer-main {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+
+
 /*--------------------------------------------------------------
 # Sections & Section Header
 --------------------------------------------------------------*/

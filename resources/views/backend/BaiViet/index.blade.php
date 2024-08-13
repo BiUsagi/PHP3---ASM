@@ -34,6 +34,7 @@
                                         <th class="text-center">Ảnh Bìa</th>
                                         <th>Thể Loại</th>
                                         <th>Tác Giả</th>
+                                        <th>Lượt Xem</th>
                                         <th data-type="date" data-format="YYYY/DD/MM">Ngày Tạo</th>
                                         <th class="text-center">Hành Động</th>
                                     </tr>
@@ -46,18 +47,20 @@
                                         <tr>
                                             <td class="text-center">
                                                 {{ $item->id }}
-                                            </td>   
+                                            </td>
                                             <td>{{ $item->ten_bai }}</td>
                                             <td class="text-center" style="width: 200px;">
                                                 @if ($item->hinh_anh)
-                                                    <img src="backend/img/{{ $item->hinh_anh }}" style="max-height: 100px;">
+                                                    <img src="backend/img/{{ $item->hinh_anh }}" style="max-height: 100px;"
+                                                        class="img-customer">
                                                 @else
                                                     <img src="{{ url('backend/img/no-image.jpg') }}"
-                                                        style="max-height: 100px;" class="object-cover">
+                                                        style="max-height: 100px;" class="object-cover img-customer">
                                                 @endif
                                             </td>
                                             <td>{{ $item->theloai->ten }}</td>
                                             <td>{{ $item->user->name }}</td>
+                                            <td class="text-center">{{ $item->luot_xem }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td class="text-center" style="width: 200px;">
                                                 <button type="button" class="btn btn-info text-white"><i

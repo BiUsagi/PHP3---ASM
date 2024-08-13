@@ -15,7 +15,7 @@
                                         <a href="{{ url('baiviet/' . $tin->id) }}" class="img-bg d-flex align-items-end"
                                             style="background-image: url('{{ url('backend/img/' . $tin->hinh_anh) }}');">
                                             <div class="img-bg-inner">
-                                                <h2>{{ $tin->ten_bai }}</h2>
+                                                <h2>{{ $tin->ten_bai_bai }}</h2>
                                                 <p>{{ $tin->mo_ta }}</p>
                                             </div>
                                         </a>
@@ -45,50 +45,38 @@
                 <div class="row g-5">
                     <div class="col-lg-4">
 
+                        {{-- Tin đầu tiên --}}
                         @foreach ($listtin->slice(0, 1) as $tin)
                             <div class="post-entry-1 lg">
-                                <a href="{{ url('baiviet/' . $tin->id) }}"><img src="{{ url('img/' . $tin->hinhanh) }}"
-                                        alt="" class="img-fluid"></a>
+                                <a href="{{ url('baiviet/' . $tin->id) }}"><img
+                                        src="{{ url('backend/img/' . $tin->hinh_anh) }}" alt=""
+                                        class="img-fluid img-customer-main"></a>
                                 <div class="post-meta">
                                     <span class="date">
-                                        {{-- lấy loại --}}
-                                        @php
-                                            $loai = DB::table('theloai')
-                                                ->select('ten')
-                                                ->where('id', $tin->id_loai)
-                                                ->first();
-                                            echo $loai->ten;
-                                        @endphp
+                                        {{ $tin->theloai->ten }}
                                     </span>
                                     <span class="mx-1">&bullet;</span>
                                     <span>J{{ $tin->created_at }}</span>
                                 </div>
-                                <h2><a href="{{ url('baiviet/' . $tin->id) }}">{{ $tin->ten }}</a></h2>
-                                <p class="mb-4 d-block">{{ $tin->mota }}</p>
+                                <h2><a href="{{ url('baiviet/' . $tin->id) }}">{{ $tin->ten_bai }}</a></h2>
+                                <p class="mb-4 d-block">{{ $tin->mo_ta }}</p>
 
                                 <div class="d-flex align-items-center author">
-                                    <div class="photo"><img src="img/person-1.jpg" alt="" class="img-fluid"></div>
+                                    <div class="photo">
+                                        @if ($tin->user->hinh_anh)
+                                            <img src="backend/img/{{ $tin->user->hinh_anh }}" class="img-fluid">
+                                        @else
+                                            <img src="{{ url('backend/img/no-image.jpg') }}" alt=""
+                                                class="img-fluid">
+                                        @endif
+
+                                    </div>
                                     <div class="name">
-                                        <h3 class="m-0 p-0">Cameron Williamson</h3>
+                                        <h3 class="m-0 p-0">{{ $tin->user->name }}</h3>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-                        <div class="post-entry-1 border-bottom">
-                            <div class="post-meta"><span class="date">Lifestyle</span> <span
-                                    class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                            <h2 class="mb-2"><a href="{{ url('baiviet/' . $tin->id) }}">The Best Homemade Masks for Face
-                                    (keep the Pimples Away)</a></h2>
-                            <span class="author mb-3 d-block">Jenny Wilson</span>
-                        </div>
-
-                        <div class="post-entry-1">
-                            <div class="post-meta"><span class="date">Lifestyle</span> <span
-                                    class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                            <h2 class="mb-2"><a href="{{ url('baiviet/' . $tin->id) }}">10 Life-Changing Hacks Every
-                                    Working Mom Should Know</a></h2>
-                            <span class="author mb-3 d-block">Jenny Wilson</span>
-                        </div>
 
                     </div>
 
@@ -97,54 +85,39 @@
                             <div class="col-lg-4 border-start custom-border">
 
 
+                                {{-- 3 tin cột 2 --}}
                                 @foreach ($listtin->slice(1, 3) as $tin)
                                     <div class="post-entry-1">
                                         <a href="{{ url('baiviet/' . $tin->id) }}"><img
-                                                src=" {{ url('img/' . $tin->hinhanh) }}" alt=""
-                                                class="img-fluid"></a>
+                                                src=" {{ url('backend/img/' . $tin->hinh_anh) }}" alt=""
+                                                class="img-fluid img-customer"></a>
                                         <div class="post-meta">
                                             <span class="date">
-                                                {{-- lấy loại --}}
-                                                @php
-                                                    $loai = DB::table('theloai')
-                                                        ->select('ten')
-                                                        ->where('id', $tin->id_loai)
-                                                        ->first();
-                                                    echo $loai->ten;
-                                                @endphp
+                                                {{ $tin->theloai->ten }}
                                             </span>
                                             <span class="mx-1">&bullet;</span> <span>{{ $tin->created_at }}</span>
                                         </div>
-                                        <h2><a href="{{ url('baiviet/' . $tin->id) }}">{{ $tin->ten }}</a></h2>
+                                        <h2><a href="{{ url('baiviet/' . $tin->id) }}">{{ $tin->ten_bai }}</a></h2>
                                     </div>
                                 @endforeach
-
-
-
 
 
                             </div>
                             <div class="col-lg-4 border-start custom-border">
 
+                                {{-- 3 tin cột 3 --}}
                                 @foreach ($listtin->slice(4, 3) as $tin)
                                     <div class="post-entry-1">
                                         <a href="{{ url('baiviet/' . $tin->id) }}"><img
-                                                src=" {{ url('img/' . $tin->hinhanh) }}" alt=""
-                                                class="img-fluid"></a>
+                                                src=" {{ url('backend/img/' . $tin->hinh_anh) }}" alt=""
+                                                class="img-fluid img-customer"></a>
                                         <div class="post-meta">
                                             <span class="date">
-                                                {{-- lấy loại --}}
-                                                @php
-                                                    $loai = DB::table('theloai')
-                                                        ->select('ten')
-                                                        ->where('id', $tin->id_loai)
-                                                        ->first();
-                                                    echo $loai->ten;
-                                                @endphp
+                                                {{ $tin->theloai->ten }}
                                             </span>
                                             <span class="mx-1">&bullet;</span> <span>{{ $tin->created_at }}</span>
                                         </div>
-                                        <h2><a href="{{ url('baiviet/' . $tin->id) }}">{{ $tin->ten }}</a></h2>
+                                        <h2><a href="{{ url('baiviet/' . $tin->id) }}">{{ $tin->ten_bai }}</a></h2>
                                     </div>
                                 @endforeach
 
@@ -166,8 +139,8 @@
                                             <li>
                                                 <a href="">
                                                     <span class="number">{{ $counter }}</span>
-                                                    <h3>{{ $top->ten }}</h3>
-                                                    <span class="author">Jane Cooper</span>
+                                                    <h3>{{ $top->ten_bai }}</h3>
+                                                    <span class="author">{{ $top->user->name }}</span>
                                                 </a>
                                             </li>
 
@@ -187,13 +160,13 @@
             </div>
         </section> <!-- End Post Grid Section -->
 
-        <!-- ======= Culture Category Section ======= -->
+        <!-- ======= Esport Category Section ======= -->
         <section class="category-section">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header d-flex justify-content-between align-items-center mb-5">
                     <h2>ESPORTS</h2>
-                    <div><a href="category.html" class="more">See All Esports</a></div>
+                    <div><a href="category.html" class="more">Xem Thêm</a></div>
                 </div>
 
                 <div class="row">
@@ -204,16 +177,16 @@
                             @foreach ($esports->slice(0, 1) as $esp)
                                 <a href="{{ url('baiviet/' . $esp->id) }}"
                                     class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
-                                    <img src="{{ url('img/' . $esp->hinhanh) }}" alt="" class="img-fluid">
+                                    <img src="{{ url('backend/img/' . $esp->hinh_anh) }}" alt="" class="img-fluid">
                                 </a>
                                 <div>
                                     <div class="post-meta"><span class="date">ESPORST</span> <span
                                             class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>
-                                    <h3><a href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten }}</a></h3>
+                                    <h3><a href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten_bai }}</a></h3>
                                     <p>{{ $esp->mota }}</p>
                                     <div class="d-flex align-items-center author">
-                                        <div class="photo"><img src="img/person-2.jpg" alt=""
-                                                class="img-fluid"></div>
+                                        <div class="photo"><img src="img/person-2.jpg" alt="" class="img-fluid">
+                                        </div>
                                         <div class="name">
                                             <h3 class="m-0 p-0">Wade Warren</h3>
                                         </div>
@@ -229,7 +202,7 @@
                                 @foreach ($esports->slice(1, 1) as $esp)
                                     <div class="post-entry-1 border-bottom">
                                         <a href="{{ url('baiviet/' . $esp->id) }}"><img
-                                                src="{{ url('img/' . $esp->hinhanh) }}" alt=""
+                                                src="{{ url('backend/img/' . $esp->hinh_anh) }}" alt=""
                                                 class="img-fluid"></a>
                                         <div class="post-meta"><span class="date">ESPORST</span> <span
                                                 class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>
@@ -256,7 +229,7 @@
                                 @foreach ($esports->slice(3, 1) as $esp)
                                     <div class="post-entry-1">
                                         <a href="{{ url('baiviet/' . $esp->id) }}"><img
-                                                src="{{ url('img/' . $esp->hinhanh) }}" alt=""
+                                                src="{{ url('backend/img/' . $esp->hinh_anh) }}" alt=""
                                                 class="img-fluid"></a>
                                         <div class="post-meta"><span class="date">ESPORST</span> <span
                                                 class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>

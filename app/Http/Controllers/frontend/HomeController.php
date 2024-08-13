@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $listtin = BaiViet::all();
-        $noibat = BaiViet::select('ten_bai')
+        $noibat = BaiViet::select('ten_bai', 'user_id')
             ->orderBy('luot_xem', 'desc')
             ->limit(5)
             ->get();
