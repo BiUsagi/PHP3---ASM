@@ -30,7 +30,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">ID</th>
-                                        <th>Tên</th>
+                                        <th>Tên Bài Viết</th>
                                         <th class="text-center">Ảnh Bìa</th>
                                         <th>Thể Loại</th>
                                         <th>Tác Giả</th>
@@ -48,7 +48,7 @@
                                             <td class="text-center">
                                                 {{ $item->id }}
                                             </td>
-                                            <td>{{ $item->ten_bai }}</td>
+                                            <td style="width: 250px;">{{ $item->ten_bai }}</td>
                                             <td class="text-center" style="width: 200px;">
                                                 @if ($item->hinh_anh)
                                                     <img src="backend/img/{{ $item->hinh_anh }}" style="max-height: 100px;"
@@ -61,7 +61,7 @@
                                             <td>{{ $item->theloai->ten }}</td>
                                             <td>{{ $item->user->name }}</td>
                                             <td class="text-center">{{ $item->luot_xem }}</td>
-                                            <td>{{ $item->created_at }}</td>
+                                            <td style="width: 100px;">{{ $item->created_at }}</td>
                                             <td class="text-center" style="width: 200px;">
                                                 <button type="button" class="btn btn-info text-white"><i
                                                         class="bi bi-eye-fill"></i></button>
