@@ -174,21 +174,22 @@
 
                         <div class="d-lg-flex post-entry-2">
 
+                            {{-- Bài viết đầu tiên --}}
                             @foreach ($esports->slice(0, 1) as $esp)
                                 <a href="{{ url('baiviet/' . $esp->id) }}"
                                     class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
                                     <img src="{{ url('backend/img/' . $esp->hinh_anh) }}" alt="" class="img-fluid">
                                 </a>
                                 <div>
-                                    <div class="post-meta"><span class="date">ESPORST</span> <span
+                                    <div class="post-meta"><span class="date">{{ $esp->theloai->ten }}</span> <span
                                             class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>
                                     <h3><a href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten_bai }}</a></h3>
-                                    <p>{{ $esp->mota }}</p>
+                                    <p>{{ $esp->mo_ta }}</p>
                                     <div class="d-flex align-items-center author">
                                         <div class="photo"><img src="img/person-2.jpg" alt="" class="img-fluid">
                                         </div>
                                         <div class="name">
-                                            <h3 class="m-0 p-0">Wade Warren</h3>
+                                            <h3 class="m-0 p-0">{{ $esp->user->name }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -199,17 +200,18 @@
                         <div class="row">
                             <div class="col-lg-4">
 
+                                {{-- 2 bài dưới --}}
                                 @foreach ($esports->slice(1, 1) as $esp)
                                     <div class="post-entry-1 border-bottom">
                                         <a href="{{ url('baiviet/' . $esp->id) }}"><img
                                                 src="{{ url('backend/img/' . $esp->hinh_anh) }}" alt=""
-                                                class="img-fluid"></a>
-                                        <div class="post-meta"><span class="date">ESPORST</span> <span
+                                                class="img-fluid img-customer"></a>
+                                        <div class="post-meta"><span class="date">{{ $esp->theloai->ten }}</span> <span
                                                 class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>
                                         <h2 class="mb-2"><a
-                                                href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten }}</a></h2>
-                                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                                        <p class="mb-4 d-block">{{ $esp->mota }}</p>
+                                                href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten_bai }}</a></h2>
+                                        <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
+                                        <p class="mb-4 d-block">{{ $esp->mo_ta }}</p>
                                     </div>
                                 @endforeach
 
@@ -218,25 +220,26 @@
                                         <div class="post-meta"><span class="date">ESPORST</span> <span
                                                 class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>
                                         <h2 class="mb-2"><a
-                                                href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten }}</a></h2>
-                                        <span class="author mb-3 d-block">Jenny Wilson</span>
+                                                href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten_bai }}</a></h2>
+                                        <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
                                     </div>
                                 @endforeach
 
                             </div>
                             <div class="col-lg-8">
 
+                                {{-- Bài ảnh to nhất --}}
                                 @foreach ($esports->slice(3, 1) as $esp)
                                     <div class="post-entry-1">
                                         <a href="{{ url('baiviet/' . $esp->id) }}"><img
                                                 src="{{ url('backend/img/' . $esp->hinh_anh) }}" alt=""
-                                                class="img-fluid"></a>
-                                        <div class="post-meta"><span class="date">ESPORST</span> <span
+                                                class="img-fluid img-customer-big"></a>
+                                        <div class="post-meta"><span class="date">{{ $esp->theloai->ten }}</span> <span
                                                 class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>
                                         <h2 class="mb-2"><a
-                                                href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten }}</a></h2>
-                                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                                        <p class="mb-4 d-block">{{ $esp->mota }}</p>
+                                                href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten_bai }}</a></h2>
+                                        <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
+                                        <p class="mb-4 d-block">{{ $esp->mo_ta }}</p>
                                     </div>
                                 @endforeach
 
@@ -246,13 +249,14 @@
 
                     <div class="col-md-3">
 
-                        @foreach ($esports->slice(0, 6) as $esp)
+                        {{-- 6 baif tiếp theo --}}
+                        @foreach ($esports->slice(4, 6) as $esp)
                             <div class="post-entry-1 border-bottom">
-                                <div class="post-meta"><span class="date">ESPORST</span> <span
+                                <div class="post-meta"><span class="date">{{ $esp->theloai->ten }}</span> <span
                                         class="mx-1">&bullet;</span> <span>{{ $esp->created_at }}</span></div>
-                                <h2 class="mb-2"><a href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten }}</a>
+                                <h2 class="mb-2"><a href="{{ url('baiviet/' . $esp->id) }}">{{ $esp->ten_bai }}</a>
                                 </h2>
-                                <span class="author mb-3 d-block">Jenny Wilson</span>
+                                <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
                             </div>
                         @endforeach
 
@@ -261,7 +265,9 @@
             </div>
         </section><!-- End Culture Category Section -->
 
-        <!-- ======= Business Category Section ======= -->
+
+
+        <!-- ======= Công Nghệ Category Section ======= -->
         <section class="category-section">
             <div class="container" data-aos="fade-up">
 
@@ -273,74 +279,92 @@
                 <div class="row">
                     <div class="col-md-9 order-md-2">
 
-                        <div class="d-lg-flex post-entry-2">
-                            <a href="" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
-                                <img src="img/post-landscape-3.jpg" alt="" class="img-fluid">
-                            </a>
-                            <div>
-                                <div class="post-meta"><span class="date">Business</span> <span
-                                        class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                                <h3><a href="">What is the son of Football Coach John Gruden, Deuce Gruden doing
-                                        Now?</a></h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat
-                                    exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error
-                                    deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
-                                <div class="d-flex align-items-center author">
-                                    <div class="photo"><img src="img/person-4.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="name">
-                                        <h3 class="m-0 p-0">Wade Warren</h3>
+
+                        {{-- bài viết đầu tiên bên trái --}}
+                        @foreach ($congnghe->slice(0, 1) as $item)
+                            <div class="d-lg-flex post-entry-2">
+                                <a href="" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                                    <img src="{{ url('backend/img/' . $item->hinh_anh) }}" alt=""
+                                        class="img-fluid img-customer-big">
+                                </a>
+                                <div>
+                                    <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span> <span
+                                            class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span></div>
+                                    <h3><a href=""> {{ $item->ten_bai }} </a></h3>
+                                    <p>{{ $item->mo_ta }}
+                                    </p>
+                                    <div class="d-flex align-items-center author">
+                                        <div class="photo"><img src="img/person-4.jpg" alt=""
+                                                class="img-fluid">
+                                        </div>
+                                        <div class="name">
+                                            <h3 class="m-0 p-0">{{ $item->user->name }}</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
+
 
                         <div class="row">
                             <div class="col-lg-4">
-                                <div class="post-entry-1 border-bottom">
-                                    <a href=""><img src="img/post-landscape-5.jpg" alt=""
-                                            class="img-fluid"></a>
-                                    <div class="post-meta"><span class="date">Business</span> <span
-                                            class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                                    <h2 class="mb-2"><a href="">11 Work From Home Part-Time Jobs You Can Do
-                                            Now</a></h2>
-                                    <span class="author mb-3 d-block">Jenny Wilson</span>
-                                    <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-                                        temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
-                                </div>
+                                {{-- 2 bài viết dưới --}}
+                                @foreach ($congnghe->slice(1, 1) as $item)
+                                    <div class="post-entry-1 border-bottom">
+                                        <a href=""><img src="{{ url('backend/img/' . $item->hinh_anh) }}"
+                                                alt="" class="img-fluid img-customer"></a>
+                                        <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
+                                            <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
+                                        </div>
+                                        <h2 class="mb-2"><a href="">{{ $item->ten_bai }}</a></h2>
+                                        <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
+                                        <p class="mb-4 d-block"> {{ $item->mo_ta }} </p>
+                                    </div>
+                                @endforeach
 
-                                <div class="post-entry-1">
-                                    <div class="post-meta"><span class="date">Business</span> <span
-                                            class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                                    <h2 class="mb-2"><a href="">5 Great Startup Tips for Female Founders</a></h2>
-                                    <span class="author mb-3 d-block">Jenny Wilson</span>
-                                </div>
+                                @foreach ($congnghe->slice(2, 1) as $item)
+                                    <div class="post-entry-1">
+                                        <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
+                                            <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
+                                        </div>
+                                        <h2 class="mb-2"><a href="">{{ $item->ten_bai }}</a>
+                                        </h2>
+                                        <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="col-lg-8">
-                                <div class="post-entry-1">
-                                    <a href=""><img src="img/post-landscape-7.jpg" alt=""
-                                            class="img-fluid"></a>
-                                    <div class="post-meta"><span class="date">Business</span> <span
-                                            class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                                    <h2 class="mb-2"><a href="">How to Avoid Distraction and Stay Focused During
-                                            Video Calls?</a></h2>
-                                    <span class="author mb-3 d-block">Jenny Wilson</span>
-                                    <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-                                        temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
-                                </div>
+
+
+                                {{-- ảnh to nhất --}}
+                                @foreach ($congnghe->slice(3, 1) as $item)
+                                    <div class="post-entry-1">
+                                        <a href=""><img src="{{ url('backend/img/' . $item->hinh_anh) }}"
+                                                alt="" class="img-fluid img-customer-big"></a>
+                                        <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
+                                            <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
+                                        </div>
+                                        <h2 class="mb-2"><a href="">{{ $item->ten_bai }}</a></h2>
+                                        <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
+                                        <p class="mb-4 d-block">{{ $item->mo_ta }}</p>
+                                    </div>
+                                @endforeach
+
+
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
 
-
-                        @foreach ($congnghe->slice(0, 6) as $cn)
+                        {{-- Hàng dài đầu tiên --}}
+                        @foreach ($congnghe->slice(4, 6) as $cn)
                             <div class="post-entry-1 border-bottom">
-                                <div class="post-meta"><span class="date">Công Nghệ</span> <span
+                                <div class="post-meta"><span class="date">{{ $cn->theloai->ten }}</span> <span
                                         class="mx-1">&bullet;</span> <span>{{ $cn->created_at }}</span></div>
-                                <h2 class="mb-2"><a href="{{ url('baiviet/' . $cn->id) }}">{{ $cn->ten }}</a>
+                                <h2 class="mb-2"><a href="{{ url('baiviet/' . $cn->id) }}">{{ $cn->ten_bai }}</a>
                                 </h2>
-                                <span class="author mb-3 d-block">Jenny Wilson</span>
+                                <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
                             </div>
                         @endforeach
 
