@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 // frontend
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\DanhMucConroller;
+use \App\Http\Controllers\frontend\TinTucController;
 
 
 // backend
@@ -21,16 +22,19 @@ use App\Http\Controllers\backend\TheLoaiController;
 
 // frontend
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
+Route::get('/gioithieu', [HomeController::class, 'gioithieu'])->name('gioithieu');
+Route::get('/lienhe', [HomeController::class, 'lienhe'])->name('lienhe');
 
-Route::get('/baiviet/{id}', [HomeController::class, 'baiviet'])->name('baiviet.one');
+// Bài viết
+Route::get('/baiviet/{id}', [TinTucController::class, 'baiviet'])->name('baiviet.one');
+
 
 // thể loại
 Route::get('/theloai', [DanhMucConroller::class, 'index'])->name('theloai');
 Route::get('/theloai/{id}', [DanhMucConroller::class, 'theloai'])->name('theloai.id');
 
-Route::get('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
-Route::get('/gioithieu', [HomeController::class, 'gioithieu'])->name('gioithieu');
-Route::get('/lienhe', [HomeController::class, 'lienhe'])->name('lienhe');
+
 
 
 

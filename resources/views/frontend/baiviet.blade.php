@@ -10,30 +10,13 @@
                         <div class="single-post">
                             <div class="post-meta">
                                 <span class="date">
-                                    {{ $loai->ten }}
+                                    {{ $tin->theloai->ten }}
                                 </span>
                                 <span class="mx-1">&bullet;</span> <span>{{ $tin->created_at }}</span>
                             </div>
-                            <h1 class="mb-5">{{ $tin->ten }}</h1>
-                            {{-- <p>{!! highlight_first_character($tin->mota) !!}</p> --}}
-
-                            <p>
-                                @php
-                                    $upper = mb_substr($tin->mota, 0, 1);
-                                    $mota_nor = mb_substr($tin->mota, 1);
-                                @endphp
-                                <span class="firstcharacter">{{ $upper }}</span>
-                                {{ $mota_nor }}
-                            </p>
-
-
-                            <p>{{ $tin->noidung }}</p>
-
-
-                            {{-- <figure class="my-4"> --}}
-                            {{-- <img src="{{  url('img/post-landscape-5.jpg')}}" alt="" class="img-fluid"> --}}
-                            {{-- <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit? </figcaption>
-              </figure> --}}
+                            <h1 class="mb-5">{{ $tin->ten_bai }}</h1>
+                            {{-- Ghi hoa chữ cái đầu --}}
+                            <p>{!! highlight_first_character($tin->noi_dung) !!}</p>
                         </div><!-- End Single Post Content -->
 
                         <!-- ======= Comments ======= -->

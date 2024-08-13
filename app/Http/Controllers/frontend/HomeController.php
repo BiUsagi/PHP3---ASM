@@ -22,15 +22,7 @@ class HomeController extends Controller
         $congnghe = BaiViet::where('id_loai', '2')
             ->get();
         return view('frontend.index', compact('listtin', 'noibat', 'esports', 'congnghe'));
-    }
-    public function baiviet($id)
-    {
-        $tin = BaiViet::where('id', $id)->first();
-        $loai = Theloai::where('id', $tin->id_loai)->first();
-        return view('baiviet', compact('tin', 'loai'));
-    }
-
-    
+    }    
     public function timkiem()
     {
         return view('frontend.timkiem');
