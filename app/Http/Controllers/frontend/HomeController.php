@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $listtin = BaiViet::all();
+        $listtin = BaiViet::orderBy('luot_xem', 'desc')->get();
         $noibat = BaiViet::select('ten_bai', 'user_id')
             ->orderBy('luot_xem', 'desc')
             ->limit(5)
@@ -22,7 +22,7 @@ class HomeController extends Controller
         $congnghe = BaiViet::where('id_loai', '2')
             ->get();
         return view('frontend.index', compact('listtin', 'noibat', 'esports', 'congnghe'));
-    }    
+    }
     public function timkiem()
     {
         return view('frontend.timkiem');
