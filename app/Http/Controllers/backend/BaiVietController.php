@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\BaiViet;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Theloai;
+use App\Http\Requests\BaiVietRequest;
 
 class BaiVietController extends Controller
 {
@@ -24,17 +25,10 @@ class BaiVietController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(BaiVietRequest $request)
     {
-        $request->validate([
-            'tieude' => 'required|max:255',
-            'mota' => 'required',
-            'noidung' => 'required',
-            'loai' => 'required',
-            'hinhanh' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
         // Xử lý upload hình ảnh
+        $hinhanh = null;
         if ($request->hasFile('hinhanh')) {
             $image = $request->file('hinhanh');
             $name = time() . '.' . $image->getClientOriginalExtension();
@@ -42,26 +36,29 @@ class BaiVietController extends Controller
             $filePath = $destinationPath . '/' . $name;
 
             // Kiểm tra xem file đã tồn tại hay chưa
-            if (file_exists($filePath)) {
-                // Nếu file tồn tại, chỉ sử dụng file hiện tại
-                $hinhanh = '/baiviet/' . $name;
-            } else {
+            if (!file_exists($filePath)) {
                 // Nếu file không tồn tại, thực hiện upload
                 $image->move($destinationPath, $name);
-                $hinhanh = '/baiviet/' . $name;
             }
+
+            $hinhanh = '/baiviet/' . $name;
         }
+
         // Tạo bài viết mới
         $baiviet = new BaiViet();
         $baiviet->ten_bai = $request->tieude;
         $baiviet->mo_ta = $request->mota;
         $baiviet->noi_dung = $request->noidung;
-        $baiviet->hinh_anh = $hinhanh;
+
+        // Chỉ gán hình ảnh nếu có file đã upload
+        if ($hinhanh) {
+            $baiviet->hinh_anh = $hinhanh;
+        }
+
         $baiviet->id_loai = $request->loai;
         $baiviet->luot_xem = 0;
-        $baiviet->user_id = 1;
+        $baiviet->user_id = auth()->user()->id;
         $baiviet->save();
-
 
         return redirect()->route('admin.baiviet')->with('success', 'Bài viết đã được thêm thành công!');
     }
@@ -73,16 +70,8 @@ class BaiVietController extends Controller
         return view("/backend/baiviet/update", compact('baiviet', 'data'));
     }
 
-    function up(Request $request, $id)
+    function up(BaiVietRequest $request, $id)
     {
-        // Validate dữ liệu
-        $request->validate([
-            'tieude' => 'required|string|max:255',
-            'mota' => 'required|string',
-            'noidung' => 'required|string',
-            'loai' => 'required|exists:theloai,id',
-            'hinhanh' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
 
         // Tìm bài viết
         $baiviet = BaiViet::findOrFail($id);

@@ -27,18 +27,27 @@
                                     <label for="tieude" class="form-label-customize">Tiêu đề <span
                                             class="note">(*)</span></label>
                                     <input type="text" class="form-control-customize " id="tieude" name="tieude">
+                                    @if ($errors->has('tieude'))
+                                        <span class="text-danger">{{ $errors->first('tieude') }}</span>
+                                    @endif
                                 </div>
                                 <div class="col-12">
                                     <label for="mota" class="form-label-customize">Mô tả <span
                                             class="note">(*)</span></label>
-                                    <textarea type="text" class="form-control-customize ck-editor"id="description" name="mota" data_height="100"></textarea>
+                                    <textarea type="text" class="form-control-customize ck-editor" id="description" name="mota" data_height="100"></textarea>
+                                    @if ($errors->has('mota'))
+                                        <span class="text-danger">{{ $errors->first('mota') }}</span>
+                                    @endif
                                 </div>
-                                <div class="col-12 ">
+
+                                <div class="col-12">
                                     <label for="noidung" class="form-label-customize">Nội dung <span
                                             class="note">(*)</span></label>
                                     <textarea type="text" class="form-control-customize ck-editor" name="noidung" id="editor"></textarea>
+                                    @if ($errors->has('noidung'))
+                                        <span class="text-danger">{{ $errors->first('noidung') }}</span>
+                                    @endif
                                 </div>
-
 
                             </div>
                         </div>
@@ -58,6 +67,9 @@
                                     <input class="form-control mt-2 mb-2" type="file" name="hinhanh" id="hinh"
                                         onchange="previewImage(event)">
                                 </label>
+                                @if ($errors->has('hinhanh'))
+                                    <span class="text-danger">{{ $errors->first('hinhanh') }}</span>
+                                @endif
                             </div>
                         </div>
                         <!-- END avata -->
@@ -71,6 +83,9 @@
                                     @endforeach
                                 </select>
                             </div>
+                            @if ($errors->has('loai'))
+                                <span class="text-danger">{{ $errors->first('loai') }}</span>
+                            @endif
                         </div>
 
 
