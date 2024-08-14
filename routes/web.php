@@ -58,7 +58,7 @@ require __DIR__ . '/auth.php';
 
 // Backend
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
 
     // dashboard
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin');

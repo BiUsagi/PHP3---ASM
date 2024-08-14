@@ -24,7 +24,7 @@
                         <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
                             <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
                         </div>
-                        <h2 class="mb-2"><a href="#">{{ $item->ten_bai }}</a></h2>
+                        <h2 class="mb-2"><a href="{{ route('baiviet.one', $item->id) }}">{{ $item->ten_bai }}</a></h2>
                         <span class="author mb-3 d-block">{{ $item->user->name }}</span>
                     </div>
                 @endforeach
@@ -38,7 +38,7 @@
                         <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
                             <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
                         </div>
-                        <h2 class="mb-2"><a href="#">{{ $item->ten_bai }}</a></h2>
+                        <h2 class="mb-2"><a href="{{ route('baiviet.one', $item->id) }}">{{ $item->ten_bai }}</a></h2>
                         <span class="author mb-3 d-block">{{ $item->user->name }}</span>
                     </div>
                 @endforeach
@@ -53,7 +53,8 @@
         <h3 class="aside-title">THỂ LOẠI</h3>
         <ul class="aside-links list-unstyled">
             @foreach ($dsLoai as $item)
-                <li><a href="category.html"><i class="bi bi-chevron-right"></i> {{ $item->ten }}</a>
+                <li><a href="{{ route('theloai.id', $item->id) }}"><i class="bi bi-chevron-right"></i>
+                        {{ $item->ten }}</a>
                 </li>
             @endforeach
         </ul>

@@ -137,7 +137,7 @@
 
                                         @foreach ($noibat as $top)
                                             <li>
-                                                <a href="">
+                                                <a href="{{ route('baiviet.one', $top->id) }}">
                                                     <span class="number">{{ $counter }}</span>
                                                     <h3>{{ $top->ten_bai }}</h3>
                                                     <span class="author">{{ $top->user->name }}</span>
@@ -283,14 +283,15 @@
                         {{-- bài viết đầu tiên bên trái --}}
                         @foreach ($congnghe->slice(0, 1) as $item)
                             <div class="d-lg-flex post-entry-2">
-                                <a href="" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                                <a href="{{ route('baiviet.one', $item->id) }}"
+                                    class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
                                     <img src="{{ url('backend/img/' . $item->hinh_anh) }}" alt=""
                                         class="img-fluid img-customer-big">
                                 </a>
                                 <div>
                                     <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span> <span
                                             class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span></div>
-                                    <h3><a href=""> {{ $item->ten_bai }} </a></h3>
+                                    <h3><a href="{{ route('baiviet.one', $item->id) }}"> {{ $item->ten_bai }} </a></h3>
                                     <p>{{ $item->mo_ta }}
                                     </p>
                                     <div class="d-flex align-items-center author">
@@ -311,12 +312,14 @@
                                 {{-- 2 bài viết dưới --}}
                                 @foreach ($congnghe->slice(1, 1) as $item)
                                     <div class="post-entry-1 border-bottom">
-                                        <a href=""><img src="{{ url('backend/img/' . $item->hinh_anh) }}"
-                                                alt="" class="img-fluid img-customer"></a>
+                                        <a href="{{ route('baiviet.one', $item->id) }}"><img
+                                                src="{{ url('backend/img/' . $item->hinh_anh) }}" alt=""
+                                                class="img-fluid img-customer"></a>
                                         <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
                                             <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
                                         </div>
-                                        <h2 class="mb-2"><a href="">{{ $item->ten_bai }}</a></h2>
+                                        <h2 class="mb-2"><a
+                                                href="{{ route('baiviet.one', $item->id) }}">{{ $item->ten_bai }}</a></h2>
                                         <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
                                         <p class="mb-4 d-block"> {{ $item->mo_ta }} </p>
                                     </div>
@@ -327,7 +330,8 @@
                                         <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
                                             <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
                                         </div>
-                                        <h2 class="mb-2"><a href="">{{ $item->ten_bai }}</a>
+                                        <h2 class="mb-2"><a
+                                                href="{{ route('baiviet.one', $item->id) }}">{{ $item->ten_bai }}</a>
                                         </h2>
                                         <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
                                     </div>
@@ -339,12 +343,14 @@
                                 {{-- ảnh to nhất --}}
                                 @foreach ($congnghe->slice(3, 1) as $item)
                                     <div class="post-entry-1">
-                                        <a href=""><img src="{{ url('backend/img/' . $item->hinh_anh) }}"
-                                                alt="" class="img-fluid img-customer-big"></a>
+                                        <a href="{{ route('baiviet.one', $item->id) }}"><img
+                                                src="{{ url('backend/img/' . $item->hinh_anh) }}" alt=""
+                                                class="img-fluid img-customer-big"></a>
                                         <div class="post-meta"><span class="date">{{ $item->theloai->ten }}</span>
                                             <span class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
                                         </div>
-                                        <h2 class="mb-2"><a href="">{{ $item->ten_bai }}</a></h2>
+                                        <h2 class="mb-2"><a
+                                                href="{{ route('baiviet.one', $item->id) }}">{{ $item->ten_bai }}</a></h2>
                                         <span class="author mb-3 d-block">{{ $esp->user->name }}</span>
                                         <p class="mb-4 d-block">{{ $item->mo_ta }}</p>
                                     </div>
