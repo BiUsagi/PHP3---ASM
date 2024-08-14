@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\DanhMucConroller;
 use \App\Http\Controllers\frontend\TinTucController;
+use App\Http\Controllers\frontend\CommentsController;
 
 
 // backend
@@ -34,7 +35,8 @@ Route::get('/baiviet/{id}', [TinTucController::class, 'baiviet'])->name('baiviet
 Route::get('/theloai', [DanhMucConroller::class, 'index'])->name('theloai');
 Route::get('/theloai/{id}', [DanhMucConroller::class, 'theloai'])->name('theloai.id');
 
-
+// bình luận
+Route::post('/comments/{id_baiviet}', [CommentsController::class, 'store'])->name('comments.store');
 
 
 // user
