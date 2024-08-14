@@ -47,6 +47,10 @@
                             </a>
                             <ul>
                                 <li><a href="http://127.0.0.1:8000/user/profile">Thông Tin Tài Khoản</a></li>
+
+                                @if (Auth::user()->role == 1)
+                                    <li><a href="{{ route('admin') }}">Trang Admin</a></li>
+                                @endif
                                 <li><a href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng
                                         xuất</a>
