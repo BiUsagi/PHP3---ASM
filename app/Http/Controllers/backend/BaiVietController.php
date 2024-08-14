@@ -13,6 +13,7 @@ class BaiVietController extends Controller
     public function index()
     {
         $data = BaiViet::all();
+       
         return view('backend.BaiViet.index', compact('data'));
     }
 

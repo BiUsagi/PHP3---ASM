@@ -70,8 +70,9 @@
                                             <td style="width: 100px;">{{ $item->created_at }}</td>
                                             <td class="text-center" style="width: 200px;">
                                                 {{-- xem --}}
-                                                <button type="button" class="btn btn-info text-white"><i
-                                                        class="bi bi-eye-fill"></i></button>
+                                                <button type="button" class="btn btn-info "><a
+                                                        href="{{ route('baiviet.one', $item->id) }}" class="text-white"
+                                                        target="_blank"><i class="bi bi-eye-fill"></i></a></button>
                                                 {{-- sua --}}
                                                 <button type="button" class="btn btn-warning"><a
                                                         href="{{ route('admin.baiviet.update', $item->id) }}"
