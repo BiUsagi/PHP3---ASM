@@ -4,7 +4,7 @@
         <section class="single-post-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 post-content" data-aos="fade-up">
+                    <div class="col-md-9 post-content row" data-aos="fade-up">
 
                         <!-- ======= Single Post Content ======= -->
                         <div class="single-post">
@@ -23,8 +23,9 @@
                         </div><!-- End Single Post Content -->
 
                         <!-- ======= Comments ======= -->
-                        <div class="comments">
+                        <div class="comments col-12">
                             <h5 class="comment-title py-4 mt-5">{{ $binhluanCount }} Bình Luận</h5>
+
 
                             @foreach ($binhluan as $item)
                                 <div class="comment d-flex mt-3">
@@ -51,7 +52,7 @@
                         </div><!-- End Comments -->
 
                         <!-- ======= Comments Form ======= -->
-                        <div class="row justify-content-center mt-5">
+                        <div class="row justify-content-center mt-5 col-12">
                             <div class="col-lg-12">
                                 <h5 class="comment-title">Để Lại Bình Luận</h5>
 

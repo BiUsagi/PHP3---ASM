@@ -34,7 +34,7 @@
                                     <tr>
                                         <th class="text-center">ID</th>
                                         <th>Tên người dùng</th>
-                                        <th class="text-center">Ảnh</th>
+                                        {{-- <th class="text-center">Ảnh</th> --}}
                                         <th>Email</th>
                                         <th>Vai Trò</th>
                                         <th data-type="date" data-format="YYYY/DD/MM">Tham Gia</th>
@@ -51,7 +51,7 @@
                                                 {{ $item->id }}
                                             </td>
                                             <td style="width: 250px;">{{ $item->name }}</td>
-                                            <td class="text-center" style="width: 200px;">
+                                            {{-- <td class="text-center" style="width: 200px;">
                                                 @if ($item->avatar)
                                                     <img src="backend/img/{{ $item->avatar }}" style="max-height: 100px;"
                                                         class="img-customer">
@@ -59,7 +59,7 @@
                                                     <img src="{{ url('backend/img/no-image.jpg') }}"
                                                         style="max-height: 100px;" class="object-cover img-customer">
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>{{ $item->email }}</td>
                                             <td>
                                                 @if ($item->role == 0)
