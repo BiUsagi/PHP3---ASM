@@ -61,6 +61,15 @@
                                         {{ session('success') }}
                                     </div>
                                 @endif
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
 
                                 <div class="row">
                                     <form action="{{ route('comments.store', $tin->id) }}" method="POST">
@@ -68,7 +77,7 @@
                                         <div class="col-12 mb-3">
                                             <label for="comment-message">Nội Dung</label>
                                             <textarea class="form-control" id="comment-message" name="comment_message" placeholder="Nội dung bình luận của bạn"
-                                                cols="30" rows="10" required></textarea>
+                                                cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="col-12">
                                             <input type="submit" class="btn btn-primary" value="Đăng Bình Luận">
