@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Theloai;
+use App\Http\Requests\TheLoaiRequest;
 
 class TheLoaiController extends Controller
 {
@@ -20,14 +21,11 @@ class TheLoaiController extends Controller
         return view('backend.TheLoai.create', compact('data'));
     }
 
-    public function store(Request $request)
+    public function store(TheLoaiRequest $request)
     {
-        $request->validate([
-            'ten_the_loai' => 'required|string|max:255',
-        ]);
 
         // Tạo mới thể loại
-        $theloai = new Theloai();
+        $theloai = new TheLoai();
         $theloai->ten = $request->ten_the_loai;
         $theloai->save();
 
@@ -41,12 +39,12 @@ class TheLoaiController extends Controller
         return view("/backend/theloai/update", compact('theloai'));
     }
 
-    function up($id)
+    function up(TheLoaiRequest $request, $id)
     {
         $t = TheLoai::find($id);
-        $t->ten = $_POST['ten_the_loai'];
+        $t->ten = $request->input('ten_the_loai');
         $t->save();
-        return redirect('/admin/theloai');
+        return redirect()->route('admin.theloai.update', $id)->with('success', 'Thể loại đã được cập nhật thành công!');
     }
 
     public function delete($id)

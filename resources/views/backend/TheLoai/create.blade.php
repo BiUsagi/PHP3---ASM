@@ -27,8 +27,8 @@
                                 <div class="col-12">
                                     <label for="inputNanme" class="form-label-customize">Tên thể loại <span
                                             class="note">(*)</span></label>
-                                    <input type="text" class="form-control-customize" id="inputNanme"
-                                        name="ten_the_loai">
+                                    <input type="text" class="form-control-customize" id="inputNanme" name="ten_the_loai"
+                                        value="{{ old('ten_the_loai') }}">
                                 </div>
                                 <input type="submit" class="btn btn-primary mt-3" value="Thêm thể loại">
                             </form>
@@ -36,6 +36,15 @@
                             @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
+                                </div>
+                            @endif
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             @endif
                         </div>
