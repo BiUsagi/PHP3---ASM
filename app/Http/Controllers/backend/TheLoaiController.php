@@ -33,4 +33,26 @@ class TheLoaiController extends Controller
 
         return redirect()->route('admin.theloai.create')->with('success', 'Thể loại đã được thêm thành công!');
     }
+
+
+    function update($id)
+    {
+        $theloai = TheLoai::find($id);
+        return view("/backend/theloai/update", compact('theloai'));
+    }
+
+    function up($id)
+    {
+        $t = TheLoai::find($id);
+        $t->ten = $_POST['ten_the_loai'];
+        $t->save();
+        return redirect('/admin/theloai');
+    }
+
+    public function delete($id)
+    {
+        $tab = TheLoai::find($id);
+        $tab->delete();
+        return redirect()->route('admin.theloai');
+    }
 }

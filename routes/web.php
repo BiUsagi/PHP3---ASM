@@ -37,7 +37,7 @@ Route::get('/theloai/{id}', [DanhMucConroller::class, 'theloai'])->name('theloai
 
 
 
-
+// user
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -51,15 +51,15 @@ require __DIR__ . '/auth.php';
 
 
 
+
+
+
 // Backend
 
 Route::prefix('admin')->group(function () {
 
     // dashboard
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
-
-    // statistical - thống kê
-    // Route::get('/statistical', [StatisticalController::class, 'index'])->name('admin.statistical');
 
     //  bài viết
     Route::get('/baiviet', [BaiVietController::class, 'index'])->name('admin.baiviet');
@@ -70,6 +70,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/theloai', [TheLoaiController::class, 'index'])->name('admin.theloai');
     Route::get('/theloai/create', [TheLoaiController::class, 'create'])->name('admin.theloai.create');
     Route::post('/theloai/store', [TheLoaiController::class, 'store'])->name('admin.theloai.store');
+    Route::get('/theloai/update/{id}', [TheLoaiController::class, 'update'])->name('admin.theloai.update');
+    Route::post('/theloai/update/{id} ', [TheLoaiController::class, 'up'])->name('admin.theloai.up');
+    Route::get('/theloai/delete/{id}', [TheLoaiController::class, 'delete'])->name('admin.theloai.delete');
 
     // bình luận
     Route::get('/binhluan', [BinhLuanController::class, 'index'])->name('admin.binhluan');

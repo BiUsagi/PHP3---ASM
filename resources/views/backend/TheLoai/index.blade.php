@@ -46,10 +46,15 @@
                                             <td>{{ $item->ten }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td class="text-center">
-                                                <button type="button" class="btn btn-warning text-white"><i
-                                                        class="ri-edit-box-line"></i></button>
-                                                <button type="button" class="btn btn-danger"><i
-                                                        class="ri-delete-bin-5-line"></i></button>
+                                                {{-- sua --}}
+                                                <button type="button" class="btn btn-warning"><a
+                                                        href="{{ route('admin.theloai.update', $item->id) }}"
+                                                        class="text-white"> <i class="ri-edit-box-line"></i></a></button>
+                                                {{-- xoa --}}
+                                                <button type="button" class="btn btn-danger">
+                                                    <a href="{{ route('admin.theloai.delete', $item->id) }}"
+                                                        class="text-white"> <i
+                                                            class="ri-delete-bin-5-line"></i></a></button>
                                             </td>
                                         </tr>
                                     @endforeach
