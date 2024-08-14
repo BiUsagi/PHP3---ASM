@@ -72,7 +72,7 @@
                                             <td class="text-center" style="width: 200px;">
                                                 {{-- sua --}}
                                                 <button type="button" class="btn btn-warning"><a
-                                                        href="{{ route('admin.baiviet.update', $item->id) }}"
+                                                        href="{{ route('admin.taikhoan.update', $item->id) }}"
                                                         class="text-white"><i class="ri-edit-box-line"></i></a></button>
                                             </td>
                                         </tr>

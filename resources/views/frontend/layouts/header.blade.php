@@ -57,6 +57,9 @@
                         <li>
                             <a href="{{ route('login') }}">Đăng nhập</a>
                         </li>
+                        <li>
+                            <a href="{{ route('register') }}">Đăng ký</a>
+                        </li>
                     @endauth
                 </ul>
                 <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>

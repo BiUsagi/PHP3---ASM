@@ -58,7 +58,7 @@ require __DIR__ . '/auth.php';
 
 // Backend
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     // dashboard
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
@@ -84,4 +84,6 @@ Route::prefix('admin')->group(function () {
 
     //  tài khoản
     Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('admin.taikhoan');
+    Route::get('/taikhoan/update/{id}', [TaiKhoanController::class, 'update'])->name('admin.taikhoan.update');
+    Route::post('/taikhoan/update/{id} ', [TaiKhoanController::class, 'up'])->name('admin.taikhoan.up');
 });
