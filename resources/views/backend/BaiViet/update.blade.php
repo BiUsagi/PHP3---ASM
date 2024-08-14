@@ -3,18 +3,18 @@
 @section('main')
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Quản lý bài viết</h1>
+            <h1>Cập nhật bài viết</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item">Quản lý bài viết</li>
-                    <li class="breadcrumb-item active">Thêm bài viết</li>
+                    <li class="breadcrumb-item active">Cập nhật bài viết</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
 
         <section class="section">
-            <form action="{{ route('admin.baiviet.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.baiviet.up', $baiviet->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-9">
@@ -26,17 +26,18 @@
                                 <div class="col-12">
                                     <label for="tieude" class="form-label-customize">Tiêu đề <span
                                             class="note">(*)</span></label>
-                                    <input type="text" class="form-control-customize " id="tieude" name="tieude">
+                                    <input type="text" class="form-control-customize " id="tieude" name="tieude"
+                                        value="{{ $baiviet->ten_bai }}">
                                 </div>
                                 <div class="col-12">
                                     <label for="mota" class="form-label-customize">Mô tả <span
                                             class="note">(*)</span></label>
-                                    <textarea type="text" class="form-control-customize ck-editor"id="description" name="mota" data_height="100"></textarea>
+                                    <textarea type="text" class="form-control-customize ck-editor"id="description" name="mota" data_height="100">{{ $baiviet->mo_ta }}</textarea>
                                 </div>
                                 <div class="col-12 ">
                                     <label for="noidung" class="form-label-customize">Nội dung <span
                                             class="note">(*)</span></label>
-                                    <textarea type="text" class="form-control-customize ck-editor" name="noidung" id="editor"></textarea>
+                                    <textarea type="text" class="form-control-customize ck-editor" name="noidung" id="editor">{!! $baiviet->noi_dung !!}</textarea>
                                 </div>
 
 
@@ -50,8 +51,8 @@
                         <div class=" row">
                             <div class="col-12 mg-top">Ảnh Bìa:</div>
                             <div class="col-12 d-flex  justify-content-center">
-                                <img src="{{ url('backend/img/no-image.jpg') }}" alt="" class="img-cover"
-                                    id="previewImg">
+                                <img src="{{ $baiviet->hinh_anh ? url('backend/img/' . $baiviet->hinh_anh) : url('backend/img/no-image.jpg') }}"
+                                    alt="" class="img-cover" id="previewImg">
                             </div>
                             <div class="col-12   justify-content-center">
                                 <label for="hinh" class="custom-file-upload ">
@@ -67,7 +68,10 @@
                                 <select name="loai" id="select2" class="form-control-select2 setupSelect2">
                                     {{-- lặp hiện thị loại --}}
                                     @foreach ($data as $item)
-                                        <option value="{{ $item->id }}">{{ $item->ten }}</option>
+                                        <option value="{{ $item->id }}"
+                                            {{ $item->id == $baiviet->id_loai ? 'selected' : '' }}>
+                                            {{ $item->ten }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -75,7 +79,7 @@
 
 
                         <div class="card">
-                            <button type="submit" class="btn btn-primary">Thêm Bài Viết</button>
+                            <button type="submit" class="btn btn-primary">Cập Nhật Bài Viết</button>
                         </div>
                     </div>
                 </div>

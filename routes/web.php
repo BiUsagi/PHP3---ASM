@@ -65,6 +65,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/baiviet', [BaiVietController::class, 'index'])->name('admin.baiviet');
     Route::get('/baiviet/create', [BaiVietController::class, 'create'])->name('admin.baiviet.create');
     Route::post('/baiviet/store', [BaiVietController::class, 'store'])->name('admin.baiviet.store');
+    Route::get('/baiviet/update/{id}', [BaiVietController::class, 'update'])->name('admin.baiviet.update');
+    Route::post('/baiviet/update/{id}', [BaiVietController::class, 'up'])->name('admin.baiviet.up');
+    Route::get('/baiviet/delete/{id}', [BaiVietController::class, 'delete'])->name('admin.baiviet.delete');
 
     // thể loại
     Route::get('/theloai', [TheLoaiController::class, 'index'])->name('admin.theloai');

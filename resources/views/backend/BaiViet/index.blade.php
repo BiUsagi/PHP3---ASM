@@ -13,6 +13,12 @@
             </nav>
         </div><!-- End Page Title -->
 
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <section class="section">
             <div class="row">
                 <div class="col-lg-12">
@@ -63,12 +69,18 @@
                                             <td class="text-center">{{ $item->luot_xem }}</td>
                                             <td style="width: 100px;">{{ $item->created_at }}</td>
                                             <td class="text-center" style="width: 200px;">
+                                                {{-- xem --}}
                                                 <button type="button" class="btn btn-info text-white"><i
                                                         class="bi bi-eye-fill"></i></button>
-                                                <button type="button" class="btn btn-warning text-white"><i
-                                                        class="ri-edit-box-line"></i></button>
-                                                <button type="button" class="btn btn-danger"><i
-                                                        class="ri-delete-bin-5-line"></i></button>
+                                                {{-- sua --}}
+                                                <button type="button" class="btn btn-warning"><a
+                                                        href="{{ route('admin.baiviet.update', $item->id) }}"
+                                                        class="text-white"><i class="ri-edit-box-line"></i></a></button>
+                                                {{-- xoa --}}
+                                                <button type="button" class="btn btn-danger"><a
+                                                        href="{{ route('admin.baiviet.delete', $item->id) }}"
+                                                        class="text-white"> <i
+                                                            class="ri-delete-bin-5-line"></i></a></button>
                                             </td>
                                         </tr>
                                     @endforeach
