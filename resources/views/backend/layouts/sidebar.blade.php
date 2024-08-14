@@ -15,7 +15,7 @@
           <li class="nav-item">
               <a class="nav-link collapsed {{ Request::is('admin/theloai*') ? 'active' : '' }}"
                   data-bs-target="#loai-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-pencil-square"></i><span>Quản lý Thể Loại</span><i
+                  <i class="bi bi-menu-button-wide"></i><span>Quản lý Thể Loại</span><i
                       class="bi bi-chevron-down ms-auto"></i>
               </a>
               <ul id="loai-nav" class="nav-content collapse {{ Request::is('admin/theloai*') ? 'show' : '' }}"
@@ -39,8 +39,7 @@
           <li class="nav-item">
               <a class="nav-link collapsed {{ Request::is('admin/baiviet*') ? 'active' : '' }}"
                   data-bs-target="#posts-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-pencil-square"></i><span>Quản lý bài viết</span><i
-                      class="bi bi-chevron-down ms-auto"></i>
+                  <i class="bx bxs-book"></i><span>Quản lý bài viết</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
               <ul id="posts-nav" class="nav-content collapse {{ Request::is('admin/baiviet*') ? 'show' : '' }}"
                   data-bs-parent="#sidebar-nav">
@@ -58,6 +57,21 @@
               </ul>
           </li><!-- End bài viết -->
 
+          <li class="nav-item">
+              <a class="nav-link collapsed {{ Request::is('admin/taikhoan*') ? 'active' : '' }}"
+                  data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+                  <i class="bi bi-person"></i><span>Quản lý tài khoản</span><i class="bi bi-chevron-down ms-auto"></i>
+              </a>
+              <ul id="users-nav" class="nav-content collapse {{ Request::is('admin/taikhoan*') ? 'show' : '' }}"
+                  data-bs-parent="#sidebar-nav">
+                  <li>
+                      <a href="{{ route('admin.taikhoan') }}"
+                          class="{{ Request::is('admin/taikhoan*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Tất cả tài khoản</span>
+                      </a>
+                  </li>
+              </ul>
+          </li><!-- End users -->
 
 
           <li class="nav-item">
@@ -78,21 +92,7 @@
           </li><!-- End bình luận -->
 
 
-          <li class="nav-item">
-              <a class="nav-link collapsed {{ Request::is('admin/taikhoan*') ? 'active' : '' }}"
-                  data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-person"></i><span>Quản lý tài khoản</span><i class="bi bi-chevron-down ms-auto"></i>
-              </a>
-              <ul id="users-nav" class="nav-content collapse {{ Request::is('admin/taikhoan*') ? 'show' : '' }}"
-                  data-bs-parent="#sidebar-nav">
-                  <li>
-                      <a href="{{ route('admin.taikhoan') }}"
-                          class="{{ Request::is('admin/taikhoan*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Quản lý nhân viên</span>
-                      </a>
-                  </li>
-              </ul>
-          </li><!-- End users -->
+
 
       </ul>
 

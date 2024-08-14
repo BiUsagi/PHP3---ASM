@@ -27,6 +27,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
+        'role',
     ];
 
     /**
@@ -61,5 +63,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function baiviets()
+    {
+        return $this->hasMany(BaiViet::class);
+    }
+
+    public function binhluans()
+    {
+        return $this->hasMany(BinhLuan::class);
     }
 }
